@@ -17,7 +17,7 @@ int OptionOne::countItems(std::string _ProduceItem) {
 	//variable to hold the count of items
 	int count = 0;
 
-	// Iterates through the vector and count occurrences of the item
+	// Iterates through the vector and counts occurrences of the item
 	for (const auto& item : _VecAllItems) {
 		if (item == _ProduceItem) {
 			count++;

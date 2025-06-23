@@ -125,7 +125,9 @@ int main() {
 					else {
 						outputFile << item << ": " << count << "\n"; 
 					}
-					outputFile.close(); // Close the file after writing
+
+					// Close the file after writing
+					outputFile.close();
 				}
 
 				// Catch block to handle runtime errors
@@ -179,16 +181,12 @@ int main() {
 		}
 
 		// Catch block to handle custom exceptions
-		catch (const InvalidInput& e) { // Catch your specific custom exception
+		catch (const InvalidInput& e) {
 			std::cerr << "Caught InvalidInput: " << e.what() << std::endl;
-			// You might want to reset 'entry' or take other actions here
-			// to ensure the loop can continue or terminate gracefully.
-			// For example, if you want to exit on invalid input:
-			// entry = -1;
 		}
 
 		// Catch block to handle other standard exceptions
-		catch (const std::exception& e) { // Catch any other standard exceptions
+		catch (const std::exception& e) {
 			std::cerr << "Caught a standard exception: " << e.what() << std::endl;
 		}
 
