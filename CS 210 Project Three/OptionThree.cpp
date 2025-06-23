@@ -1,22 +1,21 @@
-
-#include "OptionThree.h"
+//these includes allow us to use many standard library features like strings and vectors
 #include <iostream>
-#include <fstream>	
 #include <string>
 #include <vector>
-#include <stdexcept> // Required for std::exception and its derived classes
-#include <iomanip>    // For std::setw, std::setfill, etc. if needed
-#include <limits>    // For std::numeric_limits
-#include <cctype>
-#include <map>       // For std::map to count items
+#include <iomanip>
+#include <fstream>
+#include <map>
 
+//includes the header file for OptionThree class
+#include "OptionThree.h"
 
-
-
+// Constructor for OptionThree class
 OptionThree::OptionThree(const std::vector<std::string>& AllItems) : _VecAllItems(AllItems) {
 }
+
+// Function to display a chart of items
 void OptionThree::displayChart() const {
-	std::cout << "Chart of available stock:\n";
+	std::cout << "Chart of items purchased today:\n";
 	std::map<std::string, int> itemCount;
 
 	// Count occurrences of each item
@@ -27,5 +26,10 @@ void OptionThree::displayChart() const {
 	// Display the chart
 	for (const auto& pair : itemCount) {
 		std::cout << std::setw(20) << std::left << pair.first << ": " << std::string(pair.second, '*') << " (" << pair.second << ")\n";
+
+		// Writes to file
+		std::ofstream outputFile("Frequency.dat", std::ios::app);
+		outputFile << std::setw(20) << std::left << pair.first << ": "
+			<< std::string(pair.second, '*') << " (" << pair.second << ")\n";
 	}
 }

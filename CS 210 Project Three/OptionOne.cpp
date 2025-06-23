@@ -1,28 +1,32 @@
-#include <iostream> 
-#include <fstream>  
+
+//these includes allow us to use many standard library features like strings and vectors
+#include <iostream>  
 #include <string>   
-#include <vector>
-#include <stdexcept> // Required for std::exception and its derived classes	
-#include <iomanip>    // For std::setw, std::setfill, etc. if needed
-#include <limits>    // For std::numeric_limits	
-#include <cctype>
+#include <vector>   
 
-#include "OptionOne.h" // Always include your own header file first
+//including the header file for OptionOne class
+#include "OptionOne.h"
 
+// Constructor for OptionOne class
 OptionOne::OptionOne(const std::string& ProduceItem, const std::vector<std::string>& AllItems) : _ProduceItem(ProduceItem), _VecAllItems(AllItems) {
 }
 
+// Function to count the number of items purchased for a specific produce item
 int OptionOne::countItems(std::string _ProduceItem) {
+
+	//variable to hold the count of items
 	int count = 0;
-	// Iterate through the vector and count occurrences of the frequency
+
+	// Iterates through the vector and count occurrences of the item
 	for (const auto& item : _VecAllItems) {
 		if (item == _ProduceItem) {
 			count++;
 		}
 	}
+
 	// If no items were found, throw an exception
 	if (count == 0) {
-		std::cout << "No items found for the specified product: " << _ProduceItem << "\n";
+		std::cout << "No items found for that specific product: " << _ProduceItem << "\n";
 	}
 	
 	return count;

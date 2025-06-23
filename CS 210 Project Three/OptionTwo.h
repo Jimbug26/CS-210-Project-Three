@@ -1,25 +1,30 @@
+
+//prevent multiple inclusions of the header file
 #pragma once
+
+// if the header file is not already defined, define it
 #ifndef OPTIONTWO_H
 #define OPTIONTWO_H
-#include <iostream>
-#include <fstream>
+
+//these includes allow us to use many standard library features like strings and vectors
 #include <string>
-	
 #include <vector>
-#include <stdexcept> // Required for std::exception and its derived classes
-#include <iomanip>    // For std::setw, std::setfill, etc. if needed
-#include <limits>    // For std::numeric_limits
-#include <cctype>
 
-
+//this is the class declaration for OptionTwo
 class OptionTwo {
 private:
+
+	//this variable holds a vector of all items
 	std::vector<std::string> _VecAllItems;
 public:
+
+	//this is the constructor for the OptionTwo class
 	OptionTwo(const std::vector<std::string>& AllItems);
 	
-	void displayAllItems(std::vector<std::string>& _VecAllItems) const;
-	void displayCountPerItem() const;
+	//a function that displays each item and its count
+	void displayCountPerItem(std::vector<std::string>& _VecAllItems) const;
 	
 };
-#endif // OPTIONTWO_H
+
+// End of the header
+#endif
